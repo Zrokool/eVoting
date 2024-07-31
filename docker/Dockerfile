@@ -9,7 +9,7 @@ RUN docker-php-ext-install mysqli pdo pdo_mysql
 COPY apache/000-default.conf /etc/apache2/sites-available/000-default.conf
 
 # Copy the application files into the web server's root directory
-COPY ../eVoting 2017/application/evoting/home.php
+COPY ../src/ /var/www/html/
 
 # Set permissions
 RUN chown -R www-data:www-data /var/www/html/
