@@ -1,20 +1,27 @@
-# Dockerfile
+# Dockerfile using Node.js base image
 FROM node:18-alpine
 
-# Create app directory
+# Set working directory
 WORKDIR /usr/src/app
 
-# Copy package files
-COPY package*.json ./
+# Debug: Print working directory contents before copy
+RUN pwd && ls -la
+
+# Copy package.json first
+COPY package.json ./
+
+# Debug: Print contents after copy
+RUN ls -la
 
 # Install dependencies
 RUN npm cache clean --force && npm install
 
-# Copy source code
+# Copy the rest of the application
 COPY . .
 
-# Expose the necessary port (if running a server, adjust accordingly)
-EXPOSE 8181  # Replace with your app's port
+# Debug: Print final contents
+RUN ls -la
 
-# Start the application
+EXPOSE 8181
+
 CMD [ "npm", "start" ]
