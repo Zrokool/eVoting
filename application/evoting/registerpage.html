@@ -1,0 +1,99 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>eVoting</title>
+	</head>
+<body>
+	<h1>eVoting</h1>
+	<h3>Registration Page</h3>
+
+	<form action="AddingPersonInfo.php" method = "post" />
+<!--input first name and last name-->
+	<label for="firstname"> First Name:</label>
+	
+	<input type= "text"  name = "FirstName"/>
+	
+	<label for="lastname"> Last Name:</label>
+	<input type= "text"  name = "LastName" />
+	
+	<label for="DateOfBirth"> Date of Birth:</label>
+	<input type= "text"  name = "DateOfBirth" />
+	</br>
+	</br>
+<!--input social security and citizen number-->	
+		<label for="phone"> Phone Number : </label>
+		<input type= "text" name = "Phone" />
+	
+		<label for="ssn"> Social Security Number:</label>
+		<input type= "number"  name = "SSN" />
+	
+		<label for="citizennum"> Citizen Number:</label>
+		<input type= "number"  name = "CitizenNum" />
+	<hr>
+<!--input radio button for gender-->	
+<p>Gender
+	</br>
+		<label for="sex"> Male:</label>
+		<input type= "radio" name="Sex" value="Male" /> 
+		
+		<label for="sex"> Female:</label>
+		<input type= "radio" name="Sex" value="Female" />
+     
+
+</br>
+</br>
+</br>
+</br>
+	<label for="race"> Race:</label>
+	<input type= "text"  name = "Race" />
+</p>
+	<hr>
+	<!--input address info -->	
+<p>Address
+	</br>
+		<label for="street"> Street: </label>
+		<input type= "text" name="Street" /> 
+	</br>
+	</br>
+		<label for="city"> City:</label>
+		<input type= "text" name="City" />
+		
+		<label for="county"> County:</label>
+		<input type= "text" name = "County"  /> 
+		
+		<label for="state"> State:</label>
+		<input type= "text" name="State">
+		
+		<label for="zip"> Zip Code:</label>
+		<input type= "text" name="ZipCode">
+	</br>
+</p>
+	<hr>
+<!--input usernamename and password-->
+Create Account
+	</br>
+		<label for="usernamename"> Username:</label>
+		<input type= "text"  name = "Username"/>
+	</br> 
+	</br>
+		<label for="password"> Password:</label>
+		<input type= "text"  name ="Password"/>
+<hr>
+	
+<!--submit button move to loggedin page -->
+	<input type="submit" value="Submit" />
+
+</form>
+<br><br>
+	<form action = "Logout.php" action = "Post">
+
+<input type="submit" value="Sign Out">
+	
+</form>
+
+
+</body>
+</html>
+
+
