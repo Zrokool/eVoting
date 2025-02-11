@@ -14,7 +14,7 @@ COPY package.json ./
 RUN ls -la
 
 # Install dependencies
-RUN npm cache clean --force && npm install
+RUN npm install
 
 # Copy the rest of the application
 COPY . .
