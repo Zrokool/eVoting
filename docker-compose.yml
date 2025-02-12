@@ -2,7 +2,9 @@ version: '3.8'
 
 services:
   web:
-    build: .
+    build:
+      context: .
+      dockerfile: Dockerfile
     ports:
       - "8181:8181"
     volumes:
@@ -11,21 +13,20 @@ services:
       - db
     environment:
       DB_HOST: db
-      DB_USER: evoting_user
-      DB_PASSWORD: evoting_password
-      DB_NAME: evoting_db
+      DB_USER: root
+      DB_PASSWORD: root_password
+      DB_NAME: evoting
 
   db:
     image: mysql:5.7
     ports:
       - "3306:3306"
     environment:
+      MYSQL_DATABASE: evoting
       MYSQL_ROOT_PASSWORD: root_password
-      MYSQL_DATABASE: evoting_db
-      MYSQL_USER: evoting_user
-      MYSQL_PASSWORD: evoting_password
     volumes:
       - mysql_data:/var/lib/mysql
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
 
 volumes:
   mysql_data:
