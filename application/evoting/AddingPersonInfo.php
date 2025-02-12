@@ -1,5 +1,5 @@
 <?php
-
+require_once 'config.php'; //Testing Automation 
 #Caling connection.php to reuse the script to connect db server 
 Include 'connect.php';
 
