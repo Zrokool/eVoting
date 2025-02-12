@@ -32,36 +32,35 @@
 
 #--- version two for deployment 
 
-
-# Use PHP with Apache
 FROM php:7.4-apache
 
-# Install any PHP extensions you might need
-RUN docker-php-ext-install mysqli pdo pdo_mysql
+# Install MySQLi
+RUN docker-php-ext-install mysqli
 
 # Enable Apache mod_rewrite
 RUN a2enmod rewrite
 
-# Set the working directory in container
+# Set working directory
 WORKDIR /var/www/html
 
-# Copy the application files
+# Copy application files
 COPY . /var/www/html/
 
 # Set permissions
 RUN chown -R www-data:www-data /var/www/html \
     && chmod -R 755 /var/www/html
 
-# Apache config to handle subdirectories
-RUN echo '<Directory /var/www/html>\n\
-    Options Indexes FollowSymLinks\n\
-    AllowOverride All\n\
-    Require all granted\n\
-</Directory>' > /etc/apache2/conf-available/custom.conf \
-    && a2enconf custom
+# Configure Apache for our directory structure
+RUN echo '<VirtualHost *:8181>\n\
+    DocumentRoot /var/www/html\n\
+    <Directory /var/www/html>\n\
+        Options Indexes FollowSymLinks\n\
+        AllowOverride All\n\
+        Require all granted\n\
+    </Directory>\n\
+</VirtualHost>' > /etc/apache2/sites-available/000-default.conf
 
-# Expose port 8181
+# Update Apache ports
+RUN sed -i 's/Listen 80/Listen 8181/g' /etc/apache2/ports.conf
+
 EXPOSE 8181
-
-# Update the default apache site to use port 8181
-RUN sed -i 's/80/8181/g' /etc/apache2/sites-available/000-default.conf /etc/apache2/ports.conf
