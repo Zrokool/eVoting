@@ -1,4 +1,5 @@
 <?php 
+require_once 'config.php'; //Testing Automation 
 session_start();
 if(empty($_SESSION['is_authenticated']))
 {
