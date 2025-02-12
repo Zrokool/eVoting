@@ -1,5 +1,4 @@
 <?php 
-require_once 'config.php'; //Testing Automation 
 
 echo "
 <html>
