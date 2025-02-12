@@ -1,6 +1,5 @@
 <?php
-require_once 'config.php'; //Testing Automation 
-#Caling connection.php to reuse the script to connect db server 
+ #Caling connection.php to reuse the script to connect db server 
 Include 'connect.php';
 
 //Statement runs once submit is clicked in the register View
