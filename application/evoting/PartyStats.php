@@ -11,6 +11,7 @@ $query = "select * from partystats";
 
 <html>
   <head>
+  <link rel="stylesheet" href="mrrobot-theme.css">
   <h1> 2012 Party Statistics </h1>
   <h3> Breakdown Per Party </h3>
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
@@ -51,4 +52,5 @@ $query = "select * from partystats";
 			<input type="submit" value="Back">
 		</form>
   
+
 </html>
