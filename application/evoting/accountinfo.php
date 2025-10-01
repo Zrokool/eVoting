@@ -1,5 +1,6 @@
 <html>
 	<head>
+		<link rel="stylesheet" href="mrrobot-theme.css">
 		<title>eVoting</title>
 		<h3>eVoting</h3>
 		<h3>Update Residential Information </h3>
@@ -37,3 +38,4 @@
 		</form>	
    </body>
 </html>
+
