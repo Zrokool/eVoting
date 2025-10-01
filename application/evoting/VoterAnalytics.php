@@ -1,6 +1,7 @@
 <?php
 include 'connect.php';
 	echo "<html><head>
+		<link rel="stylesheet" href="mrrobot-theme.css">
 		<title> eVoting</title>
 		<h1> 2012 Presidential Results</h1>
 	</head></html> ";
@@ -59,4 +60,5 @@ while($row = mysql_fetch_array($result, MYSQL_ASSOC))
 		<form action="Logout.php">
 			<input type="submit" value="Log Out">
 		</form>		
+
 </html>
