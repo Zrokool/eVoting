@@ -24,10 +24,11 @@
 		</form>	
 		<form action="AdminCode.php">
 			Navigate to main page: 
-			<input type="submit" value="Back">
+			<input type="submit" value="Back"/>
 		</form>
 	
 </html>
+
 
 
 
