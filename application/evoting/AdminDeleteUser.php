@@ -3,8 +3,6 @@
 		<link rel="stylesheet" href="mrrobot-theme.css">
 		<title>User Deletion</title>
 	</head>
-	<body>
-
 		<h1>eVoting</h1>
 		<h3>Troubleshooting</h3>
 		<h4>Help find Username for client </h4>
