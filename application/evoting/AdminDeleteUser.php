@@ -1,6 +1,6 @@
 <html>
-	<head>
 		<link rel="stylesheet" href="mrrobot-theme.css">
+	<head>
 		<title>User Deletion</title>
 	</head>
 		<h1>eVoting</h1>
@@ -28,6 +28,7 @@
 		</form>
 	
 </html>
+
 
 
 
