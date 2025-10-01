@@ -17,7 +17,7 @@
 	</body>
 	<form action="DeleteUser.php" method="post">
 			Enter the Voter Citizen Number that you want to permenatly delete from the Database: <br >
-			</br><input type= "text" name="CitizenNum" /></br ><br>
+			</br><input type= "text" name="CitizenNum" /><br></br>
 			
 			Enter the Voter ID associated to the Voter you want to permenatly delete in the Database: </br />
 			</br /><input type= "text" name="vID" /></br /></br>
@@ -35,6 +35,7 @@
 		</form>
 	   </br />
 </html>
+
 
 
 
