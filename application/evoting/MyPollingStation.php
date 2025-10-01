@@ -1,5 +1,6 @@
 <html>
 	<head>
+		<link rel="stylesheet" href="mrrobot-theme.css">
 		<title>View Polling Station is you Area</title>
 	</head>
 	<body>
@@ -51,3 +52,4 @@ mysql_close($db);
 }	
 
 ?>
+
