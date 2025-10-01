@@ -1,6 +1,8 @@
 <html>
 <head>
+    <link rel="stylesheet" href="mrrobot-theme.css">
     <title>eVoting</title>
+    
     <!-- FLAG-CONFIG-002: Exposing admin functionality in title -->
 </head>
 <body>
@@ -193,3 +195,4 @@ REMEDIATION (For student reports):
 10. Add input validation on both client and server side
 */
 ?>
+
