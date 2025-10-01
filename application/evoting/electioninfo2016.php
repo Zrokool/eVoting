@@ -1,5 +1,6 @@
 <html>
 <head>
+    <link rel="stylesheet" href="mrrobot-theme.css">
     <title>evoting</title>
     <h1>2016 Election Candidates</h1>
     <!-- FLAG-DATA-003: Exposing system information -->
@@ -214,3 +215,4 @@ TODO:
 - Add session timeout
 - Implement proper error handling
 -->
+
