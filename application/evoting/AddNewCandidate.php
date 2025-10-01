@@ -3,7 +3,7 @@
 echo "
 <html>
 	<head>
-
+		<link rel="stylesheet" href="mrrobot-theme.css">
 		<h1>eVoting</h1>
 		<h3>Add New Candidate in the Database</h3>	
 	</head>
@@ -81,3 +81,4 @@ mysql_close($db);
 		</body>
 	   </br />
 </html>
+
