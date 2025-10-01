@@ -1,5 +1,6 @@
 <html>
 	<head>
+		<link rel="stylesheet" href="mrrobot-theme.css">
 		<title>evoting</title>
 
 	<h1>State Information</h1>
@@ -46,4 +47,5 @@ echo "<table border='2'><tr>";
 	
 	// Close connection to the database
 mysql_close($db);
+
 ?>
