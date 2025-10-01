@@ -26,8 +26,9 @@
 			Navigate to main page: 
 			<input type="submit" value="Back">
 		</form>
-	   <br />
+	
 </html>
+
 
 
 
