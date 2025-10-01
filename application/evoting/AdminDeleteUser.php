@@ -7,7 +7,7 @@
 		<h3>Troubleshooting</h3>
 		<h4>Help find Username for client </h4>
 <!--button to go to another page-->
-		 
+<body>		 
 	<form action="DeleteUser.php" method="post">
 			Enter the Voter Citizen Number that you want to permenatly delete from the Database: <br/>
 			<br/><input type= "text" name="CitizenNum" /><br/><br/>
@@ -26,8 +26,9 @@
 			Navigate to main page: 
 			<input type="submit" value="Back"/>
 		</form>
-	
+</body>>	
 </html>
+
 
 
 
