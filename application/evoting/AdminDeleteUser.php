@@ -1,5 +1,6 @@
 <html>
 	<head>
+		<link rel="stylesheet" href="mrrobot-theme.css">
 		<title>User Deletion</title>
 	</head>
 	<body>
@@ -34,3 +35,4 @@
 		</form>
 	   </br />
 </html>
+
