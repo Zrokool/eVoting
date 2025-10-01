@@ -1,73 +1,70 @@
 version: '3.8'
 
 services:
-  # Vulnerable Web Application
   web:
     build:
       context: .
       dockerfile: Dockerfile
     container_name: evoting_vulnerable_app
     ports:
-      - "8181:8181"  # Main application
-      - "8182:8182"  # Admin interface (intentionally exposed)
+      - "8181:8181"
     volumes:
-      - ./application:/var/www/html
+      - ./application/evoting:/var/www/html/evoting
       - ./logs:/var/log/apache2
     depends_on:
-      - db
+      db:
+        condition: service_healthy
     environment:
-      # FLAG-CONFIG-001: Exposed credentials in environment
       DB_HOST: db
       DB_USER: root
       DB_PASSWORD: root_password
       DB_NAME: evoting
-      # FLAG-CONFIG-004: Debug mode enabled
       APP_DEBUG: "true"
       APP_ENV: "development"
-      # FLAG-CONFIG-005: Sensitive keys exposed
       SECRET_KEY: "this_is_a_secret_key_12345"
       ADMIN_BACKDOOR: "Admin187:password187"
     networks:
       - evoting_network
-    # FLAG-CONFIG-006: Running as root (bad practice)
-    # user: root  # Uncomment to make it worse
     restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8181/evoting/login1.php"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
 
-  # Vulnerable Database
   db:
     image: mysql:5.7
     container_name: evoting_mysql_db
     ports:
-      # FLAG-CONFIG-007: Database exposed to host
-      - "3306:3306"  # Should not expose database port
+      - "3306:3306"
     environment:
-      # FLAG-CONFIG-001: Weak database credentials
       MYSQL_DATABASE: evoting
-      MYSQL_ROOT_PASSWORD: root_password  # Weak password!
+      MYSQL_ROOT_PASSWORD: root_password
       MYSQL_USER: evoting_user
-      MYSQL_PASSWORD: evoting123  # Another weak password!
+      MYSQL_PASSWORD: evoting123
     volumes:
       - mysql_data:/var/lib/mysql
       - ./db/EvotingA.sql:/docker-entrypoint-initdb.d/01-schema.sql
-      - ./db/Triggers and Views B.sql:/docker-entrypoint-initdb.d/02-triggers.sql
-      # FLAG-DATA-004: Database backup accessible
-      - ./db/backup:/backup
+      - ./db/Triggers_and_Views_B.sql:/docker-entrypoint-initdb.d/02-triggers.sql
     networks:
       - evoting_network
-    # FLAG-CONFIG-008: No resource limits
-    # May lead to DoS
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-proot_password"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+    command: --default-authentication-plugin=mysql_native_password
 
-  # phpmyadmin - Another attack vector
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     container_name: evoting_phpmyadmin
     ports:
-      # FLAG-CONFIG-009: PHPMyAdmin exposed
       - "8080:80"
     environment:
       PMA_HOST: db
       PMA_PORT: 3306
-      # FLAG-CONFIG-001: Root access to database
       PMA_USER: root
       PMA_PASSWORD: root_password
     depends_on:
@@ -75,39 +72,10 @@ services:
     networks:
       - evoting_network
 
-  # Optional: Attacker toolkit container (for advanced challenges)
-  attacker_toolkit:
-    image: kalilinux/kali-rolling
-    container_name: evoting_attacker
-    tty: true
-    stdin_open: true
-    volumes:
-      - ./exploits:/exploits
-      - ./findings:/findings
-    networks:
-      - evoting_network
-    command: /bin/bash
-    # This container simulates an attacker's machine
-
 networks:
   evoting_network:
     driver: bridge
-    # FLAG-CONFIG-010: No network isolation
 
 volumes:
   mysql_data:
     driver: local
-  
-# FLAG-CONFIG-011: No secrets management
-# All sensitive data is in plain text in this file
-
-# CHALLENGES FOR STUDENTS:
-# 1. Find all exposed credentials (FLAG-CONFIG-001)
-# 2. Exploit exposed database port (FLAG-CONFIG-007)
-# 3. Access PHPMyAdmin without authentication (FLAG-CONFIG-009)
-# 4. Extract data from database backup volume (FLAG-DATA-004)
-# 5. Use attacker_toolkit container to simulate attacks
-
-# ADVANCED CHALLENGE:
-# Set up a reverse shell from web container to attacker_toolkit container
-# Hint: Look for file upload or command injection vulnerabilities
