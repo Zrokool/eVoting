@@ -21,13 +21,14 @@
 			
 			<input type= "submit" name= "submit" />
 			<br />*** Enter Correct CitizenNum and Voter ID<br />
-	</form>	
+		</form>	
 		<form action="AdminCode.php">
 			Navigate to main page: 
 			<input type="submit" value="Back">
 		</form>
 	
 </html>
+
 
 
 
