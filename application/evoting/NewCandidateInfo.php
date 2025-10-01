@@ -2,7 +2,7 @@
 echo "
 <html>
 	<head>
-
+		<link rel="stylesheet" href="mrrobot-theme.css">
 		<h1>eVoting</h1>
 		<h3>New Candidate Added to the Database</h3>	
 	</head>
@@ -48,3 +48,4 @@ mysql_close($db);
 		</body>
 	   </br />
 </html>
+
