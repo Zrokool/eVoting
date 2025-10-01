@@ -1,5 +1,6 @@
 <html>
   <head>
+  <link rel="stylesheet" href="mrrobot-theme.css">
   <h1> 2012 Presidential Statistics </h1>
   <h3>Statistical Breakdown</h3>
 <Body> List of States and Associated Party with total number of votes for 2012 Presidential Elections.
@@ -34,5 +35,6 @@ echo "<table border='2'><tr>";
 	}
 mysql_close($db);
 ?>
+
 
 </html>
