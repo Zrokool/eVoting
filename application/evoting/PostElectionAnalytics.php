@@ -11,6 +11,7 @@ $query = "select * from VoterBreakDown";
 
 <html>
   <head>
+  <link rel="stylesheet" href="mrrobot-theme.css">
   <h1> 2012 Presidential Statistics </h1>
   <h3>Based on All Candidates Statistical Breakdown</h3>
     <script type="text/javascript" src="https://www.google.com/jsapi"></script>
@@ -51,4 +52,5 @@ $query = "select * from VoterBreakDown";
 			<input type="submit" value="Back">
 		</form>
   
+
 </html>
