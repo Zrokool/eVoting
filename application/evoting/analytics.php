@@ -1,5 +1,6 @@
 <html>
 	<head>
+		<link rel="stylesheet" href="mrrobot-theme.css">
 		<title> eVoting</title>
 		<h1>Analytical Results</h1>
 	</head>
@@ -154,4 +155,5 @@ mysql_close($db);
 
 		<form action="AdminCode.php">
 			<input type="submit" value="Back">
+
 		</form>
